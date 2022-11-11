@@ -7,14 +7,19 @@
     width: 10rem;
     padding: 0;
 }
-.browser{
+.clear_button{
     width: 10.3rem;
     height: 2.5rem;
     text-decoration: none;
     border: 1px solid darkgray;
     text-align: center;
+    box-shadow: 0 0 15px firebrick;
+    background-color: firebrick;
+    color: white;
+}
+.clear_button:hover{
     color: black;
 }
-.browser:hover{
-    color: black;
+.clear_button:active{
+    box-shadow: none;
 }
