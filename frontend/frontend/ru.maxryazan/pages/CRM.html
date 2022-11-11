@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM</title>
+    <link rel="stylesheet" href="../styles/containers.css">
+    <link rel="stylesheet" href="../styles/inputs.css">
+    <link rel="stylesheet" href="../styles/tags.css">
+    <link rel="stylesheet" href="../styles/buttons.css">
+</head>
+<body>
+    <div class="inline_container_j_between">
+        <div class="inline_container">
+            <div class="text">
+                ФИО пользователя:
+            </div>
+            <div class="readonly_text FIO">
+
+            </div>
+        </div>
+        <div class="inline_container">
+            <div class="text">
+                Должность:
+            </div>
+            <div class="readonly_text FIO">
+
+            </div>
+        </div>
+    </div>
+    <hr class="hr">
+    <div class="inline_container_j_between">
+            <button class="orders_search TODAY">Сегодняшние заказы</button>
+            <button class="orders_search ALL">Все заказы</button>
+            <button class="orders_search HISTORY">История заказов</button>
+            <button class="orders_search CREATE">Создать заказ</button>
+    </div>
+    <hr class="hr">
+    <div class="inline_container_j_between">
+        <label>
+            <input class="detail_search ARTICLE" placeholder="Поиск по артикулу">
+        </label>
+        <label>
+            <input class="detail_search MANUFACTURER" placeholder="Поиск по производителю">
+        </label>
+        <label>
+            <input class="detail_search NAME" placeholder="Поиск по названию">
+        </label>
+    </div>
+    <div class="inline_container_j_between">
+        <label>
+            <input class="detail_search VIN" placeholder="Поиск по VIN">
+        </label>
+        <label>
+            <input class="detail_search MARK" placeholder="Поиск по марке машины">
+        </label>
+        <a href="https://ya.ru/" class="detail_search browser" target="_blank">Открыть браузер</a>
+    </div>
+    <div class="all_details_container">
+        <div class="title">
+            <h4 class="detailT id">Id</h4>
+            <h4 class="detailT">Наименование</h4>
+            <h4 class="detailT">VIN</h4>
+            <h4 class="detailT">Артикул</h4>
+            <h4 class="detailT">Производитель</h4>
+            <h4 class="detailT">Марка авто</h4>
+            <h4 class="detailT">Описание</h4>
+        </div>
+    </div>
+
+
+
+<script src="../javascript/fetchAll.js"></script>
+<script src="../javascript/settings.js"></script>
+</body>
+</html>

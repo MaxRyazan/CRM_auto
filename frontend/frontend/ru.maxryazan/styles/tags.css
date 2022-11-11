@@ -1,0 +1,22 @@
+.text{
+    font-family: "Franklin Gothic Medium", serif;
+    font-size: 1rem;
+    margin-right: 25px;
+}
+.readonly_text{
+    margin-right: 25px;
+}
+.hr{
+    width: 99%;
+    margin-right: 1%;
+}
+.title{
+    background-color: slategrey;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.hide{
+    display: none;
+}
