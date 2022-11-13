@@ -73,7 +73,7 @@
 .table_button{
     position: relative;
     right: 2px;
-    top: 5px;
-    height: 1.5rem;
-    width: 2rem;
+    top: 0;
+    height: 1.2rem;
+    width: 1.5rem;
 }
