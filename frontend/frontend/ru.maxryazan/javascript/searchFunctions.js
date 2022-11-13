@@ -1,5 +1,4 @@
 const searchParams = ['.ARTICLE', '.NAME', '.MARK', '.VIN', '.MANUFACTURER'];
-const shared_search_btn = document.querySelector('.sharedSearch');
 
 /*  Обработчики событий для каждого input (searchParams = классы input-полей)  */
 for(let item of searchParams) {
@@ -27,28 +26,26 @@ async function fetchByParam(param) {
             "Content-type": "application/json; charset=UTF-8"
         }
     })
- printDetails(await data.json())
+ await printDetails(await data.json())
+ await createXButtons()
 
 }
 
 
-
-
-
 /*  Печать на экран "найденных" строк из БД  */
-function printDetails(details) {
+async function printDetails(details) {
     let count = 0;
     details.forEach(obj => {
             document.querySelector('.all_details_container').insertAdjacentHTML('beforeend',
                 `
-            <div class="insert_inline_container" id="${count++}">
-                <div class="detail id">${obj.id}</div>
+            <div class="insert_inline_container" id="inline${count}">
                 <div class="detail">${obj.name}</div>
                 <div class="detail">${obj.vin}</div>
                 <div class="detail">${obj.article}</div>
                 <div class="detail">${obj.manufacturer}</div>
                 <div class="detail">${obj.carMarks.join(" ")}</div>
                 <div class="detail">${obj.description}</div>
+                <button class="table_button" id="btn${count++}">X</button>
             </div>
            `
             )
@@ -56,11 +53,9 @@ function printDetails(details) {
 }
 
 
-
 /*  Обработчик для кнопки "Очистить таблицу"  */
 document.querySelector('.clear_button').addEventListener('click', () => {
    const lines = document.querySelectorAll('.insert_inline_container')
     lines.forEach(item => item.classList.add('hide'))
-
 })
 

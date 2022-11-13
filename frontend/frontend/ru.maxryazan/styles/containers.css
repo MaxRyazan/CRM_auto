@@ -24,7 +24,7 @@ body{
 .insert_inline_container{
     display: inline-flex;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 .detail{
     font-size: 0.8rem;
@@ -33,11 +33,14 @@ body{
     margin-right: 10px;
     margin-bottom: 5px;
     border-bottom: 1px solid darkgray;
+    text-align: center;
+
 }
 .detailT{
-    max-width: 15%;
+    width: 15%;
     margin-bottom: 5px;
     font-size: 0.8rem;
+    text-align: center;
 }
 .id{
     width: 2rem;
@@ -59,4 +62,8 @@ body{
     background-color: green;
     height: 2rem;
     position: relative;
+}
+.droppable{
+    padding-top: 20px;
+    border: 1px solid red;
 }
