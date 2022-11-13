@@ -1,6 +1,8 @@
 .orders_search{
     height: 2.5rem;
     width: 10rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px black;
 }
 .detail_search{
     height: 2.5rem;
@@ -16,10 +18,24 @@
     box-shadow: 0 0 15px firebrick;
     background-color: firebrick;
     color: white;
+    cursor: pointer;
 }
 .clear_button:hover{
     color: black;
 }
 .clear_button:active{
+    box-shadow: none;
+}
+.order_button{
+    width: 10.3rem;
+    height: 2.5rem;
+    background-color: darkgreen;
+    color: white;
+    box-shadow: 0 0 15px black;
+}
+.order_button:hover{
+    color: black;
+}
+.order_button:active{
     box-shadow: none;
 }

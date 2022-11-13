@@ -36,7 +36,7 @@ public class DetailsRestController {
 
     @GetMapping(value = "/details/api/v1/MARK/{mark}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Detail>> findByMark(@PathVariable String mark){
-        return detailService.findByCarMark(mark);
+        return detailService.findByCarMark(mark.toUpperCase());
     }
 
     @GetMapping(value = "/details/api/v1/VIN/{vin}", produces = MediaType.APPLICATION_JSON_VALUE)

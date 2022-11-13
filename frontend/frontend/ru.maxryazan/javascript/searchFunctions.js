@@ -1,20 +1,7 @@
-/*  Функции поиска по введенному параметру (параметр = класс input-поля  */
-function search(findBy){
-    let searchingObj = document.querySelector(findBy).value;
-    const URL = 'http://localhost:8080/details/api/v1/'+ findBy.slice(1) + '/'+ searchingObj
-    async function fetchByArticle(){
-        const data = await fetch(URL, {
-            headers:{
-                "Content-type": "application/json; charset=UTF-8"
-            }
-        })
-        printDetails(await data.json())
-    }
-    fetchByArticle().then(r => r)
-}
+const searchParams = ['.ARTICLE', '.NAME', '.MARK', '.VIN', '.MANUFACTURER'];
+const shared_search_btn = document.querySelector('.sharedSearch');
 
 /*  Обработчики событий для каждого input (searchParams = классы input-полей)  */
-let searchParams = ['.ARTICLE', '.NAME', '.MARK', '.VIN', '.MANUFACTURER']
 for(let item of searchParams) {
     let inputField = document.querySelector(item)
     inputField.addEventListener('keydown', function (e) {
@@ -25,12 +12,35 @@ for(let item of searchParams) {
     })
 }
 
+
+/*  Функции поиска по введенному параметру (параметр = класс input-поля)  */
+function search(findBy){
+        let searchingObj = document.querySelector(findBy).value;
+        const URL = 'http://localhost:8080/details/api/v1/' + findBy.slice(1) + '/' + searchingObj
+        fetchByParam(URL).then(r => r)
+}
+
+
+async function fetchByParam(param) {
+    const data = await fetch(param, {
+        headers: {
+            "Content-type": "application/json; charset=UTF-8"
+        }
+    })
+ printDetails(await data.json())
+
+}
+
+
+
+
+
 /*  Печать на экран "найденных" строк из БД  */
 function printDetails(details) {
     let count = 0;
     details.forEach(obj => {
-        document.querySelector('.all_details_container').insertAdjacentHTML('beforeend',
-            `
+            document.querySelector('.all_details_container').insertAdjacentHTML('beforeend',
+                `
             <div class="insert_inline_container" id="${count++}">
                 <div class="detail id">${obj.id}</div>
                 <div class="detail">${obj.name}</div>
@@ -41,9 +51,11 @@ function printDetails(details) {
                 <div class="detail">${obj.description}</div>
             </div>
            `
-        )
+            )
     })
 }
+
+
 
 /*  Обработчик для кнопки "Очистить таблицу"  */
 document.querySelector('.clear_button').addEventListener('click', () => {
@@ -51,3 +63,4 @@ document.querySelector('.clear_button').addEventListener('click', () => {
     lines.forEach(item => item.classList.add('hide'))
 
 })
+

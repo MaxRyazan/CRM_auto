@@ -32,7 +32,6 @@
             <button class="orders_search TODAY">Сегодняшние заказы</button>
             <button class="orders_search ALL">Все заказы</button>
             <button class="orders_search HISTORY">История заказов</button>
-            <button class="orders_search CREATE">Создать заказ</button>
     </div>
     <hr class="hr">
     <div class="inline_container_j_between">
@@ -55,21 +54,43 @@
         </label>
         <button class="detail_search clear_button">Очистить таблицу</button>
     </div>
-    <div class="all_details_container">
-        <div class="title">
-            <h4 class="detailT id">Id</h4>
-            <h4 class="detailT">Наименование</h4>
-            <h4 class="detailT">VIN</h4>
-            <h4 class="detailT">Артикул</h4>
-            <h4 class="detailT">Производитель</h4>
-            <h4 class="detailT">Марка авто</h4>
-            <h4 class="detailT">Описание</h4>
+
+    <div class="inline_hide_container">
+        <div class="open_button_search">
+            <h5 class="h5">Таблица поиска</h5>
+        </div>
+        <div class="open_button_order">
+            <h5 class="h5">Таблица заказов</h5>
+        </div>
+    </div>
+    <div class="inline_container_j_between">
+        <div class="all_details_container">
+            <div class="title">
+                <h4 class="detailT id">Id</h4>
+                <h4 class="detailT">Наименование</h4>
+                <h4 class="detailT">VIN</h4>
+                <h4 class="detailT">Артикул</h4>
+                <h4 class="detailT">Производитель</h4>
+                <h4 class="detailT">Марка авто</h4>
+                <h4 class="detailT">Описание</h4>
+                <div class="close_btn_search">X</div>
+            </div>
+        </div>
+        <div class="order_container">
+            <div class="title">
+                <h4 class="detailT">Наименование</h4>
+                <h4 class="detailT">VIN</h4>
+                <h4 class="detailT">Артикул</h4>
+                <h4 class="detailT">Производитель</h4>
+                <div class="close_btn_order">X</div>
+            </div>
+            <div class="confirm_order">
+                <button class="confirm_order_button">Создать заказ</button>
+            </div>
         </div>
     </div>
 
-
-    <script src="../javascript/searchFunctions.js"></script>
-<script src="../javascript/fetchAll.js"></script>
+<script src="../javascript/searchFunctions.js"></script>
 <script src="../javascript/settings.js"></script>
 </body>
 </html>

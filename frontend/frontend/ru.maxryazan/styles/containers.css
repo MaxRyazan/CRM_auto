@@ -14,18 +14,20 @@ body{
     justify-content: space-between;
 }
 .all_details_container{
-    margin-top: 25px;
     border: 1px solid black;
     width: 99%;
     max-height: 150rem;
     overflow: hidden;
+    position: relative;
+    box-shadow: 0 0 10px black;
 }
 .insert_inline_container{
     display: inline-flex;
     width: 100%;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 .detail{
+    font-size: 0.8rem;
     width: 15%;
     margin-left: 10px;
     margin-right: 10px;
@@ -33,11 +35,28 @@ body{
     border-bottom: 1px solid darkgray;
 }
 .detailT{
-    width: 15%;
-    margin-left: 10px;
-    margin-right: 10px;
+    max-width: 15%;
     margin-bottom: 5px;
+    font-size: 0.8rem;
 }
 .id{
     width: 2rem;
+}
+.order_container {
+    margin-left: 10px;
+    width: 100%;
+    border: 1px solid black;
+    position: relative;
+    box-shadow: 0 0 10px black;
+}
+.inline_hide_container{
+    width: 99%;
+    justify-content: space-around;
+    margin-top: 25px;
+    display: inline-flex;
+}
+.confirm_order{
+    background-color: green;
+    height: 2rem;
+    position: relative;
 }
