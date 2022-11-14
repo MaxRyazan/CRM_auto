@@ -44,8 +44,10 @@ async function printDetails(details) {
                 <div class="detail">${obj.manufacturer}</div>
                 <div class="detail">${obj.carMarks.join(" ")}</div>
                 <div class="detail">${obj.description}</div>
-                <button class="table_button" id="btn${count}">X</button>
-                <button class="move_button" id="move_btn${count++}">></button>
+                <div>
+                    <button class="move_button" id="move_btn${count++}">></button>
+                    <button class="table_button" id="btn${count}">X</button>
+                </div>
             </div>
            `
             )
