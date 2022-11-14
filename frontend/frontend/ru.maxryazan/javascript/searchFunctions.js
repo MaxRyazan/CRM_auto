@@ -11,7 +11,6 @@ for(let item of searchParams) {
     })
 }
 
-
 /*  Функции поиска по введенному параметру (параметр = класс input-поля)  */
 function search(findBy){
         let searchingObj = document.querySelector(findBy).value;
@@ -19,7 +18,7 @@ function search(findBy){
         fetchByParam(URL).then(r => r)
 }
 
-
+/* Основной метод выполнения программы */
 async function fetchByParam(param) {
     const data = await fetch(param, {
         headers: {
@@ -28,7 +27,7 @@ async function fetchByParam(param) {
     })
  await printDetails(await data.json())
  await createXButtons()
-
+ await createMoveButtons()
 }
 
 
@@ -45,17 +44,12 @@ async function printDetails(details) {
                 <div class="detail">${obj.manufacturer}</div>
                 <div class="detail">${obj.carMarks.join(" ")}</div>
                 <div class="detail">${obj.description}</div>
-                <button class="table_button" id="btn${count++}">X</button>
+                <button class="table_button" id="btn${count}">X</button>
+                <button class="move_button" id="move_btn${count++}">></button>
             </div>
            `
             )
     })
 }
 
-
-/*  Обработчик для кнопки "Очистить таблицу"  */
-document.querySelector('.clear_button').addEventListener('click', () => {
-   const lines = document.querySelectorAll('.insert_inline_container')
-    lines.forEach(item => item.classList.add('hide'))
-})
 
