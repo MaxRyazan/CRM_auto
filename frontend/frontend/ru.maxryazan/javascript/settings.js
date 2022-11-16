@@ -26,7 +26,7 @@ document.querySelector('.clear_button').addEventListener('click', () => {
 
 /* Создание кнопок удаления в таблице */
 function createXButtons() {
-    let table_buttonsX = document.querySelectorAll('.table_button')
+    let table_buttonsX = document.querySelectorAll('.cancel_button')
             for(let i = 0; i < table_buttonsX.length; i++){
                 table_buttonsX[i].addEventListener('click', function () {
                 document.querySelector('#inline'+i).classList.add('hide')
@@ -45,3 +45,20 @@ function createMoveButtons(){
             })
         }
 }
+
+onresize = () => {   document.querySelector('.test').innerHTML = `${window.innerWidth}`};
+
+
+document.querySelector('.confirm_order_button').addEventListener('click', getOrdersIdArray)
+
+function getOrdersIdArray() {
+   let array_of_id = []
+   let children_array = Array.from(document.querySelector('.order_container').children.item(1).children)
+    children_array.forEach((item) => {
+        if(item.classList.contains('insert_inline_container')){
+            array_of_id.push(item.children.item(0).innerHTML)
+        }
+    })
+    return array_of_id
+}
+

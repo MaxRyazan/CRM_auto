@@ -38,15 +38,16 @@ async function printDetails(details) {
             document.querySelector('.all_details_container').insertAdjacentHTML('beforeend',
                 `
             <div class="insert_inline_container" id="inline${count}">
+                <div class="detail">${obj.id}</div>
                 <div class="detail">${obj.name}</div>
                 <div class="detail">${obj.vin}</div>
                 <div class="detail">${obj.article}</div>
                 <div class="detail">${obj.manufacturer}</div>
                 <div class="detail">${obj.carMarks.join(" ")}</div>
                 <div class="detail">${obj.description}</div>
-                <div>
+                <div class="table_buttons">
                     <button class="move_button" id="move_btn${count++}">></button>
-                    <button class="table_button" id="btn${count}">X</button>
+                    <button class="cancel_button" id="btn${count}">X</button>
                 </div>
             </div>
            `

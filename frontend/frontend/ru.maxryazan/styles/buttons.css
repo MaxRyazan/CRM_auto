@@ -1,18 +1,22 @@
 .close_btn_search{
-    position: absolute;
+    position: relative;
     right: 5px;
     top: 5px;
     font-weight: bold;
     background-color: slategrey;
     height: 1rem;
+    width: 15%;
+    text-align: center;
 }
 .close_btn_order{
-    position: absolute;
+    position: relative;
     right: 5px;
     top: 5px;
     font-weight: bold;
     background-color: slategrey;
     height: 1rem;
+    width: 15%;
+    text-align: center;
 }
 .close_btn_search:hover{
     cursor: pointer;
@@ -70,16 +74,52 @@
     color: white;
     cursor: pointer;
 }
-.table_button{
+.cancel_button{
+    float: right;
     position: relative;
-    right: 2px;
-    top: 2px;
     height: 1.2rem;
-    width: 1.5rem;
+    width: 2.5rem;
+    right: 0;
 }
 .move_button{
+    float: right;
     position: relative;
-    right: 2px;
     height: 1.2rem;
-    width: 1.5rem;
+    width: 2.5rem;
+    right: 0;
+}
+.clear_button{
+    width: 10.3rem;
+    height: 2.5rem;
+    text-decoration: none;
+    border: 1px solid darkgray;
+    text-align: center;
+    box-shadow: 5px 5px 5px darkred;
+    background-color: firebrick;
+    color: white;
+    cursor: pointer;
+}
+.clear_button:hover{
+    color: black;
+}
+.clear_button:active{
+    box-shadow: none;
+}
+.order_button{
+    width: 10.3rem;
+    height: 2.5rem;
+    background-color: darkgreen;
+    color: white;
+    box-shadow: 0 0 15px black;
+}
+.order_button:hover{
+    color: black;
+}
+.order_button:active{
+    box-shadow: none;
+}
+.table_buttons{
+    position: relative;
+    margin-right: 5px;
+    width: 15%;
 }

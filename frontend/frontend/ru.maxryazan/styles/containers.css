@@ -1,11 +1,6 @@
-body{
-    font-size: 16px;
-
-}
 .inline_container{
     display: inline-flex;
     height: 2rem;
-
 }
 .inline_container_j_between{
     display: inline-flex;
@@ -17,7 +12,6 @@ body{
     border: 1px solid black;
     width: 99%;
     max-height: 150rem;
-    overflow: hidden;
     position: relative;
     box-shadow: 0 0 10px black;
 }
@@ -28,19 +22,22 @@ body{
 }
 .detail{
     font-size: 0.8rem;
-    width: 15%;
-    margin-left: 10px;
-    margin-right: 10px;
+    width: 16%;
     margin-bottom: 5px;
     border-bottom: 1px solid darkgray;
     text-align: center;
-
+    margin-left: 1px;
+    margin-right: 1px;
+    border-right: 1px solid black;
 }
 .detailT{
-    width: 15%;
+    width: 16%;
     margin-bottom: 5px;
     font-size: 0.8rem;
     text-align: center;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-right: 1px solid black;
 }
 .id{
     width: 2rem;
@@ -64,6 +61,46 @@ body{
     position: relative;
 }
 .droppable{
-    padding-top: 20px;
-    border: 1px solid red;
+
+}
+@media screen and (min-width: 1800px){
+    html{
+        font-size: 0.9rem;
+    }
+    input{
+        font-size: 1rem;
+    }
+    button{
+        font-size: 0.9rem;
+    }
+    .detailT{
+        font-size: 0.9rem;
+    }
+    .detail{
+        font-size: 0.9rem;
+    }
+    ::placeholder{
+        font-size: 0.85rem;
+    }
+}
+
+@media screen and (min-width: 2000px){
+    html{
+        font-size: 1rem;
+    }
+    input{
+        font-size: 1rem;
+    }
+    button{
+        font-size: 1rem;
+    }
+    .detailT{
+        font-size: 1rem;
+    }
+    .detail{
+        font-size: 1rem;
+    }
+    ::placeholder{
+        font-size: 0.85rem;
+    }
 }
