@@ -53,12 +53,19 @@ document.querySelector('.confirm_order_button').addEventListener('click', getOrd
 
 function getOrdersIdArray() {
    let array_of_id = []
+    let date = new Date()
+    let deadline = document.querySelector('.deadline[type="date"]').value
+    let dateNow = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay()
+    let FIO = document.querySelector('.fio').value
+    array_of_id.push(FIO)
+    array_of_id.push(dateNow)
+    array_of_id.push(deadline)
    let children_array = Array.from(document.querySelector('.order_container').children.item(1).children)
     children_array.forEach((item) => {
         if(item.classList.contains('insert_inline_container')){
             array_of_id.push(item.children.item(0).innerHTML)
         }
     })
-    return array_of_id
+    postFetch(array_of_id)
 }
 

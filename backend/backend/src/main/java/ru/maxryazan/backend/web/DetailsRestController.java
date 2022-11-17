@@ -3,13 +3,14 @@ package ru.maxryazan.backend.web;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import ru.maxryazan.backend.entity.Detail;
+import ru.maxryazan.backend.entity.Order;
 import ru.maxryazan.backend.service.DetailService;
+import ru.maxryazan.backend.service.OrderService;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -18,6 +19,7 @@ import java.util.List;
 public class DetailsRestController {
 
     private final DetailService detailService;
+    private final OrderService orderService;
 
     @GetMapping(value = "/details/api/v1/MANUFACTURER/{manufacturer}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Detail>> findByManufacturer(@PathVariable String manufacturer){
@@ -43,4 +45,11 @@ public class DetailsRestController {
     public ResponseEntity<List<Detail>> findByVIN(@PathVariable String vin){
         return detailService.findByVIN(vin);
     }
+
+    @PostMapping(value = "/details/api/v1/order-new")
+    public void post(@RequestBody String[] data){
+        orderService.createAndSaveOrder(data);
+    }
 }
+
+

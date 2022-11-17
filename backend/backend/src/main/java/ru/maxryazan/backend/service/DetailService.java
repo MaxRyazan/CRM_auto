@@ -69,4 +69,8 @@ public class DetailService {
     public ResponseEntity<List<Detail>> findAll(){
             return new ResponseEntity<>(detailRepository.findAll(), HttpStatus.OK);
     }
+
+    public Detail findById(long id) {
+        return detailRepository.findById(id);
+    }
 }

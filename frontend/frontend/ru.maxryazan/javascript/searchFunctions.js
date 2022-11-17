@@ -55,4 +55,12 @@ async function printDetails(details) {
     })
 }
 
-
+function postFetch(data){
+    const POST_URL = 'http://localhost:8080/details/api/v1/order-new'
+    fetch(POST_URL, {
+        method: 'POST', headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }, body:
+            JSON.stringify(data)
+    })
+}

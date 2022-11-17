@@ -56,9 +56,12 @@
     display: inline-flex;
 }
 .confirm_order{
+    width: 100%;
+    display: inline-flex;
     background-color: green;
     height: 2rem;
     position: relative;
+    justify-content: space-around;
 }
 .droppable{
 

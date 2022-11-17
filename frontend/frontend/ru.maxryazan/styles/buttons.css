@@ -1,7 +1,5 @@
 .close_btn_search{
     position: relative;
-    right: 5px;
-    top: 5px;
     font-weight: bold;
     background-color: slategrey;
     height: 1rem;
@@ -10,8 +8,6 @@
 }
 .close_btn_order{
     position: relative;
-    right: 5px;
-    top: 5px;
     font-weight: bold;
     background-color: slategrey;
     height: 1rem;
@@ -60,9 +56,8 @@
     color: darkgreen;
 }
 .confirm_order_button{
-    position: absolute;
-    right: 25px;
-    top: 5px;
+
+
     box-shadow: 0 0 15px black;
     background-color: slategrey;
     color: black;

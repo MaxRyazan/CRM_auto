@@ -12,5 +12,6 @@ public interface DetailRepository extends JpaRepository<Detail, Long> {
     List<Detail> findByArticle(String article);
     List<Detail> findByVIN(String VIN);
     List<Detail> findByManufacturer(String manufacturer);
+    Detail findById(long id);
 
 }

@@ -11,3 +11,14 @@
     padding: 0;
     box-shadow: 5px 5px 5px black;
 }
+.fio{
+    margin-top: 1px;
+    width: 15rem;
+    height: 1.5rem;
+}
+.deadline{
+    height: 1.5rem;
+}
+.deadline:hover{
+    cursor: pointer;
+}
