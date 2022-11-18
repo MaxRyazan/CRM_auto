@@ -57,10 +57,10 @@ public class DetailService {
 
 
     public ResponseEntity<List<Detail>> findByCarMark(String mark){
-        List<Detail> details = detailRepository.findAll();
-        List<Detail> result = details.stream().filter(item -> item.getCarMarks().toString().contains(mark)).toList();
-        if(!result.isEmpty()) {
-            return new ResponseEntity<>(result, HttpStatus.OK);
+        List<Detail> details = detailRepository.findByCarMarks(mark);
+//        List<Detail> result = details.stream().filter(item -> item.getCarMarks().toString().contains(mark)).toList();
+        if(!details.isEmpty()) {
+            return new ResponseEntity<>(details, HttpStatus.OK);
         } else {
             return new ResponseEntity<>(new ArrayList<>(), HttpStatus.NOT_FOUND);
         }

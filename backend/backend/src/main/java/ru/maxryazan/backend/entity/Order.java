@@ -3,9 +3,7 @@ package ru.maxryazan.backend.entity;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
 import javax.persistence.*;
-import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -25,6 +23,8 @@ public class Order {
     private String timeOfDeadLine;
 
     @ManyToMany
+    @JoinTable(name = "order_details", joinColumns = @JoinColumn(name = "order_id"),
+            inverseJoinColumns = @JoinColumn(name = "detail_id"))
     private List<Detail> details;
 
 

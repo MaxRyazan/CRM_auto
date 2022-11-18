@@ -52,10 +52,11 @@ onresize = () => {   document.querySelector('.test').innerHTML = `${window.inner
 document.querySelector('.confirm_order_button').addEventListener('click', getOrdersIdArray)
 
 function getOrdersIdArray() {
-   let array_of_id = []
+    let array_of_id = []
     let date = new Date()
+    let month = (+date.getMonth() + 1).toString()
     let deadline = document.querySelector('.deadline[type="date"]').value
-    let dateNow = date.getFullYear() + '-' + date.getMonth() + '-' + date.getDay()
+    let dateNow = date.getDate() + '-' + month + '-' +date.getFullYear()
     let FIO = document.querySelector('.fio').value
     array_of_id.push(FIO)
     array_of_id.push(dateNow)
@@ -67,5 +68,13 @@ function getOrdersIdArray() {
         }
     })
     postFetch(array_of_id)
+    document.querySelector('.fio').value = ''
+    document.querySelector('.deadline[type="date"]').value = ''
+    let containers = document.querySelector('.droppable').children
+    for(let item of containers){
+        if(item.className === 'insert_inline_container'){
+            item.remove()
+        }
+    }
 }
 

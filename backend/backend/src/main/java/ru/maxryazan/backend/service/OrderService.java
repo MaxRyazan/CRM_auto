@@ -22,14 +22,12 @@ public class OrderService {
 
     public void createAndSaveOrder(String[] data) {
         List<Detail> details = new ArrayList<>();
-        StringBuilder dateNow = new StringBuilder(data[1]);
-        StringBuilder deadline = new StringBuilder(data[2]);
 
         for (int i = 3; i < data.length; i++) {
             Detail detail = detailService.findById(Long.parseLong(data[i]));
             details.add(detail);
         }
-        Order order = new Order(data[0], dateNow.reverse().toString(), deadline.reverse().toString(), details);
+        Order order = new Order(data[0], data[1], data[2], details);
         save(order);
     }
 }

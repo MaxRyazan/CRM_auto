@@ -15,7 +15,7 @@ for(let item of searchParams) {
 function search(findBy){
         let searchingObj = document.querySelector(findBy).value;
         const URL = 'http://localhost:8080/details/api/v1/' + findBy.slice(1) + '/' + searchingObj
-        fetchByParam(URL).then(r => r)
+        fetchByParam(URL)
 }
 
 /* Основной метод выполнения программы */
@@ -31,6 +31,7 @@ async function fetchByParam(param) {
 }
 
 let count = 0;
+
 /*  Печать на экран "найденных" строк из БД  */
 async function printDetails(details) {
     details.forEach(obj => {

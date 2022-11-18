@@ -32,6 +32,12 @@ public class Detail {
 
     private String description;
 
+    @Transient
+    @ManyToMany
+    @JoinTable(name = "order_details", joinColumns = @JoinColumn(name = "detail_id"),
+            inverseJoinColumns = @JoinColumn(name = "order_id"))
+    private List<Order> orders;
+
     @ElementCollection
     private List<String> photos;
 
