@@ -27,8 +27,6 @@ public class Detail {
     private String manufacturer;
 
     @ElementCollection(targetClass = CarMark.class)
-    @JoinTable(name = "tblCarMark", joinColumns = @JoinColumn(name = "id"))
-    @Column(name = "CarMark")
     @Enumerated(EnumType.STRING)
     private List<CarMark> carMarks;
 

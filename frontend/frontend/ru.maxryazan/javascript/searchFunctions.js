@@ -30,10 +30,9 @@ async function fetchByParam(param) {
  await createMoveButtons()
 }
 
-
+let count = 0;
 /*  Печать на экран "найденных" строк из БД  */
 async function printDetails(details) {
-    let count = 0;
     details.forEach(obj => {
             document.querySelector('.all_details_container').insertAdjacentHTML('beforeend',
                 `
@@ -46,12 +45,13 @@ async function printDetails(details) {
                 <div class="detail">${obj.carMarks.join(" ")}</div>
                 <div class="detail">${obj.description}</div>
                 <div class="table_buttons">
-                    <button class="move_button" id="move_btn${count++}">></button>
+                    <button class="move_button" id="move_btn${count}">></button>
                     <button class="cancel_button" id="btn${count}">X</button>
                 </div>
             </div>
            `
             )
+        count = count + 1
     })
 }
 
