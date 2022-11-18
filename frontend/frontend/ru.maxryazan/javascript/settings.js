@@ -96,6 +96,7 @@ function getOrdersIdArray() {
     }
 }
 
+/* Показать сегодняшние заказы, с фетчем API */
 async function showTodayOrders(){
    const URL_TODAY = 'http://localhost:8080/details/api/v1/order-today'
    const orders_today = await fetch(URL_TODAY, {
@@ -107,23 +108,30 @@ async function showTodayOrders(){
 }
 
 
-async function printTodayOrders(orders){
-    let result = deleteDoubles(orders)
-    result.forEach(item => {
-        document.querySelector('.today_orders').insertAdjacentHTML('beforeend',
-            `
+async function printTodayOrders(orders) {
+    if (orders.length !== 0) {
+        let result = deleteDoubles(orders)
+        result.forEach(item => {
+            for (let i = 0; i < item.details.length; i++) {
+                document.querySelector('.today_orders').insertAdjacentHTML('beforeend',
+                    `
             <div class="insertToday">
-                <div class="detail">${item.id}</div>
                 <div class="detail">${item.client_FIO}</div>
                 <div class="detail">${item.timeOfCreation}</div>
                 <div class="detail">${item.timeOfDeadLine}</div>
-                <div class="detail">${item.details.join(" ")}</div>
+                <div class="detail_order">${item.details[i].name}</div>
+                <div class="detail_order">${item.details[i].article}</div>
+                <div class="detail_order">${item.details[i].vin}</div>
+                <div class="detail_order">${item.details[i].carMarks}</div>
+                <div class="detail_order">${item.details[i].manufacturer}</div>
             </div>
             `
-        )
-    })
-
+                )
+            }
+        })
+    }
 }
+
 
 function deleteDoubles(orders){
     let start = orders[0]
@@ -134,6 +142,5 @@ function deleteDoubles(orders){
             start = orders[i]
         }
     }
-    console.log(result)
     return result
 }

@@ -2,7 +2,7 @@
     position: relative;
     font-weight: bold;
     background-color: slategrey;
-    height: 1rem;
+    height: 2rem;
     width: 15%;
     text-align: center;
 }
@@ -16,14 +16,9 @@
 }
 .close_btn_search:hover{
     cursor: pointer;
-    background-color: white;
-    border-radius: 50%;
-
 }
 .close_btn_order:hover{
     cursor: pointer;
-    background-color: white;
-    border-radius: 50%;
 }
 .open_button_search{
     width: 10.3rem;

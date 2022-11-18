@@ -2,6 +2,12 @@
     display: inline-flex;
     height: 2rem;
 }
+.inline{
+    width: 100%;
+    display: inline-flex;
+    height: 1rem;
+    background-color: slategrey;
+}
 .inline_container_j_between{
     display: inline-flex;
     width: 99%;
@@ -20,11 +26,22 @@
     width: 100%;
     justify-content: space-between;
 }
+.detail_order{
+    font-size: 0.8rem;
+    width: 16%;
+    margin-bottom: 5px;
+    /*border-bottom: 1px solid darkgray;*/
+    text-align: center;
+    margin-left: 1px;
+    margin-right: 1px;
+    border-right: 1px solid black;
+    font-weight: bold;
+}
 .detail{
     font-size: 0.8rem;
     width: 16%;
     margin-bottom: 5px;
-    border-bottom: 1px solid darkgray;
+    /*border-bottom: 1px solid darkgray;*/
     text-align: center;
     margin-left: 1px;
     margin-right: 1px;
@@ -64,15 +81,15 @@
     justify-content: space-around;
 }
 .today_orders{
-    position: relative;
-    z-index: 100;
+    position: absolute;
+    z-index: 9999;
     width: 70%;
     margin-left: 15%;
     margin-right: 15%;
-    background-color: #ffec9d;
-    padding: 10px;
+    background-color: slategrey;
     display: none;
     box-shadow: 5px 5px 5px black;
+    border: 2px solid black;
 }
 .close_today_order{
     cursor: pointer;
@@ -81,10 +98,15 @@
     width: 1.2rem;
     height: 1.2rem;
     text-align: center;
+    float: right;
 }
 .insertToday{
     display: inline-flex;
     width: 100%;
+    background-color: #ffec9d;
+    height: 1.6rem;
+    border: 1px solid black;
+    border-collapse: collapse;
 }
 @media screen and (min-width: 1800px){
     html{
