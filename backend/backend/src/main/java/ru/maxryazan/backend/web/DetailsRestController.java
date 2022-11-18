@@ -46,6 +46,11 @@ public class DetailsRestController {
         return detailService.findByVIN(vin);
     }
 
+    @GetMapping(value = "/details/api/v1/order-today", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Order>> findTodayOrders(){
+        return orderService.findTodayOrders();
+    }
+
     @PostMapping(value = "/details/api/v1/order-new")
     public void post(@RequestBody String[] data){
         orderService.createAndSaveOrder(data);

@@ -63,8 +63,28 @@
     position: relative;
     justify-content: space-around;
 }
-.droppable{
-
+.today_orders{
+    position: relative;
+    z-index: 100;
+    width: 70%;
+    margin-left: 15%;
+    margin-right: 15%;
+    background-color: #ffec9d;
+    padding: 10px;
+    display: none;
+    box-shadow: 5px 5px 5px black;
+}
+.close_today_order{
+    cursor: pointer;
+    border: 1px solid black;
+    margin-left: 90%;
+    width: 1.2rem;
+    height: 1.2rem;
+    text-align: center;
+}
+.insertToday{
+    display: inline-flex;
+    width: 100%;
 }
 @media screen and (min-width: 1800px){
     html{

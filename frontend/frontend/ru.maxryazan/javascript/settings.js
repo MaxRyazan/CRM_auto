@@ -24,6 +24,23 @@ document.querySelector('.clear_button').addEventListener('click', () => {
     lines.forEach(item => item.classList.add('hide'))
 })
 
+/*  Обработчик для кнопки закрытия окна сегодняшних заказов  */
+document.querySelector('.close_today_order').addEventListener('click', function(){
+    document.querySelectorAll('.insertToday').forEach(item => item.remove())
+    document.querySelector('.today_orders').style.display = 'none'
+})
+
+/* Обработчик кнопки "Сегодняшние заказы" */
+document.querySelector('.today').addEventListener('click', function(){
+    if(document.querySelector('.today_orders').style.display === 'block'){
+       let doubles = document.querySelectorAll('.insertToday')
+        doubles.forEach(item => item.classList.add('hide'))
+    }
+    showTodayOrders()
+    document.querySelector('.today_orders').style.display = 'block'
+})
+
+
 /* Создание кнопок удаления в таблице */
 function createXButtons() {
     let table_buttonsX = document.querySelectorAll('.cancel_button')
@@ -51,6 +68,7 @@ onresize = () => {   document.querySelector('.test').innerHTML = `${window.inner
 
 document.querySelector('.confirm_order_button').addEventListener('click', getOrdersIdArray)
 
+/* Создание заказа на стороне браузера, и пост-фетч его на бэкэнд */
 function getOrdersIdArray() {
     let array_of_id = []
     let date = new Date()
@@ -78,3 +96,44 @@ function getOrdersIdArray() {
     }
 }
 
+async function showTodayOrders(){
+   const URL_TODAY = 'http://localhost:8080/details/api/v1/order-today'
+   const orders_today = await fetch(URL_TODAY, {
+        headers: {
+            'Content-type': 'application/json; charset=UTF-8'
+        }
+    })
+       await printTodayOrders(await orders_today.json())
+}
+
+
+async function printTodayOrders(orders){
+    let result = deleteDoubles(orders)
+    result.forEach(item => {
+        document.querySelector('.today_orders').insertAdjacentHTML('beforeend',
+            `
+            <div class="insertToday">
+                <div class="detail">${item.id}</div>
+                <div class="detail">${item.client_FIO}</div>
+                <div class="detail">${item.timeOfCreation}</div>
+                <div class="detail">${item.timeOfDeadLine}</div>
+                <div class="detail">${item.details.join(" ")}</div>
+            </div>
+            `
+        )
+    })
+
+}
+
+function deleteDoubles(orders){
+    let start = orders[0]
+    let result = [orders[0]]
+    for(let i = 1; i < orders.length; i++){
+        if(orders[i].id !== start.id){
+           result.push(orders[i])
+            start = orders[i]
+        }
+    }
+    console.log(result)
+    return result
+}
