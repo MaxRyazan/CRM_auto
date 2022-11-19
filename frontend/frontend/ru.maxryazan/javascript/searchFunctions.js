@@ -4,9 +4,12 @@ const searchParams = ['.ARTICLE', '.NAME', '.MARK', '.VIN', '.MANUFACTURER'];
 for(let item of searchParams) {
     let inputField = document.querySelector(item)
     inputField.addEventListener('keydown', function (e) {
-        if (e.code === "Enter") {
-            search(item);
-            inputField.value = ''
+        if(!document.querySelector('.article_plus_manufacturer').classList.contains('search_toggle') &&
+            !document.querySelector('.vin_plus_carMark').classList.contains('search_toggle')){
+            if (e.code === "Enter") {
+                search(item);
+                inputField.value = ''
+            }
         }
     })
 }

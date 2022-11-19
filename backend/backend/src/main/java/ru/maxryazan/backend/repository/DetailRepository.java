@@ -3,7 +3,6 @@ package ru.maxryazan.backend.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import ru.maxryazan.backend.entity.CarMark;
 import ru.maxryazan.backend.entity.Detail;
 import java.util.List;
 
@@ -18,4 +17,7 @@ public interface DetailRepository extends JpaRepository<Detail, Long> {
 
     @Query(value = "select * from detail d  JOIN detail_car_marks m where m.car_marks = ?1 and d.id = m.detail_id", nativeQuery = true)
     List<Detail> findByCarMarks(String mark);
+
+    @Query(value = "select * from detail d JOIN detail_car_marks dcm on d.id = dcm.detail_id where d.vin = ?1 and dcm.car_marks = ?2", nativeQuery = true)
+    List<Detail> findByVINAndCarMarks(String VIN, String carMarks);
 }

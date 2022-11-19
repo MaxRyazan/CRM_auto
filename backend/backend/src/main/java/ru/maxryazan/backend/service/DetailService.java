@@ -58,7 +58,6 @@ public class DetailService {
 
     public ResponseEntity<List<Detail>> findByCarMark(String mark){
         List<Detail> details = detailRepository.findByCarMarks(mark);
-//        List<Detail> result = details.stream().filter(item -> item.getCarMarks().toString().contains(mark)).toList();
         if(!details.isEmpty()) {
             return new ResponseEntity<>(details, HttpStatus.OK);
         } else {
@@ -66,11 +65,12 @@ public class DetailService {
         }
     }
 
-    public ResponseEntity<List<Detail>> findAll(){
-            return new ResponseEntity<>(detailRepository.findAll(), HttpStatus.OK);
-    }
 
     public Detail findById(long id) {
         return detailRepository.findById(id);
+    }
+
+    public ResponseEntity<List<Detail>> findByVinAndCarMark(String vin, String carMark) {
+        return new ResponseEntity<>(detailRepository.findByVINAndCarMarks(vin, carMark), HttpStatus.OK);
     }
 }

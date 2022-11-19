@@ -119,6 +119,25 @@
     border: 1px solid black;
     border-collapse: collapse;
 }
+.article_plus_manufacturer{
+    position: absolute;
+    left: 28%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid black;
+    justify-content: center;
+    cursor: pointer;
+}
+.vin_plus_carMark{
+    position: absolute;
+    left: 28%;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 2px solid black;
+    justify-content: center;
+    cursor: pointer;
+}
+
 @media screen and (min-width: 1800px){
     html{
         font-size: 0.9rem;

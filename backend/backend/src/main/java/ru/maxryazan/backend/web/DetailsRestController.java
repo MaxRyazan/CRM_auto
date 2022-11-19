@@ -50,9 +50,16 @@ public class DetailsRestController {
     public ResponseEntity<List<Order>> findTodayOrders(){
         return orderService.findTodayOrders();
     }
+
     @GetMapping(value = "/details/api/v1/order-all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Order>> findAllOrders(){
         return orderService.findAllOrders();
+    }
+
+    @GetMapping(value = "/details/api/v1/mixVM/{vin}/{carMark}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Detail>> findByVinAndCarMark(@PathVariable String vin,
+                                                            @PathVariable String carMark){
+        return detailService.findByVinAndCarMark(vin, carMark);
     }
 
     @PostMapping(value = "/details/api/v1/order-new")

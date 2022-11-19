@@ -113,3 +113,8 @@
     margin-right: 5px;
     width: 15%;
 }
+.article_plus_manufacturer_button{
+    text-align: center;
+    position: relative;
+    margin-top: 25%;
+}

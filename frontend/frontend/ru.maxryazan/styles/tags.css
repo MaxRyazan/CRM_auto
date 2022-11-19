@@ -34,3 +34,7 @@ html{
     text-align: center;
     margin: 20% auto 0;
 }
+.search_toggle{
+    border: 2px solid greenyellow;
+    box-shadow: 5px 5px 5px darkgreen;
+}
