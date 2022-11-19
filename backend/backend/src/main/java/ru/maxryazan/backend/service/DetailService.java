@@ -73,4 +73,8 @@ public class DetailService {
     public ResponseEntity<List<Detail>> findByVinAndCarMark(String vin, String carMark) {
         return new ResponseEntity<>(detailRepository.findByVINAndCarMarks(vin, carMark), HttpStatus.OK);
     }
+
+    public ResponseEntity<List<Detail>> findByArticleAndManufacturer(String article, String manufacturer) {
+        return new ResponseEntity<>(detailRepository.findByArticleAndManufacturer(article, manufacturer), HttpStatus.OK);
+    }
 }

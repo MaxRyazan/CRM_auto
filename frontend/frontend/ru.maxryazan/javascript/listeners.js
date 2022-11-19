@@ -33,7 +33,7 @@ async function searchByArticleAndManufacturer(){
     let article_value = article.value
     let manufacturer_value = manufacturer.value
     const MIX_URL = 'http://localhost:8080/details/api/v1/mixAM/' + article_value + '/' + manufacturer_value
-    fetch(MIX_URL, {
+    const data = await fetch(MIX_URL, {
         headers: {
             "Content-type": "application/json; charset=UTF-8"
         }
@@ -51,6 +51,10 @@ async function searchByArticleAndManufacturer(){
 window.addEventListener('keydown', function(){
     if(vin.value !== '' && mark.value !== '' && document.querySelector('.vin_plus_carMark').classList.contains('search_toggle')){
         searchByVinAndCarMark()
+    } else {
+        if(article.value !== '' && manufacturer.value !== '' && document.querySelector('.article_plus_manufacturer').classList.contains('search_toggle')){
+            searchByArticleAndManufacturer()
+        }
     }
 })
 

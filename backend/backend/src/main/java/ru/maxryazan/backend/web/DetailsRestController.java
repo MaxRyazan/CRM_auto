@@ -62,6 +62,12 @@ public class DetailsRestController {
         return detailService.findByVinAndCarMark(vin, carMark);
     }
 
+    @GetMapping(value = "details/api/v1/mixAM/{article}/{manufacturer}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Detail>> findByArticleAndManufacturer(@PathVariable String article,
+                                                            @PathVariable String manufacturer){
+        return detailService.findByArticleAndManufacturer(article, manufacturer);
+    }
+
     @PostMapping(value = "/details/api/v1/order-new")
     public void post(@RequestBody String[] data){
         orderService.createAndSaveOrder(data);
