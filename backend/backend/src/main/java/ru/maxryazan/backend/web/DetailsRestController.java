@@ -50,6 +50,10 @@ public class DetailsRestController {
     public ResponseEntity<List<Order>> findTodayOrders(){
         return orderService.findTodayOrders();
     }
+    @GetMapping(value = "/details/api/v1/order-all", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Order>> findAllOrders(){
+        return orderService.findAllOrders();
+    }
 
     @PostMapping(value = "/details/api/v1/order-new")
     public void post(@RequestBody String[] data){

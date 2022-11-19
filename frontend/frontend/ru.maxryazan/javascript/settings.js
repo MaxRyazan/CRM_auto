@@ -1,3 +1,7 @@
+const URL_TODAY = 'http://localhost:8080/details/api/v1/order-today'
+const URL_ALL = 'http://localhost:8080/details/api/v1/order-all'
+
+
 document.querySelector('.close_btn_search').addEventListener('click', function(){
     document.querySelector('.all_details_container').classList.add('hide')
     document.querySelector('.open_button_search').style.display = 'block'
@@ -36,7 +40,16 @@ document.querySelector('.today').addEventListener('click', function(){
        let doubles = document.querySelectorAll('.insertToday')
         doubles.forEach(item => item.classList.add('hide'))
     }
-    showTodayOrders()
+    showOrders(URL_TODAY)
+    document.querySelector('.today_orders').style.display = 'block'
+})
+
+document.querySelector('.all').addEventListener('click', function(){
+    if(document.querySelector('.today_orders').style.display === 'block'){
+        let doubles = document.querySelectorAll('.insertToday')
+        doubles.forEach(item => item.classList.add('hide'))
+    }
+    showOrders(URL_ALL)
     document.querySelector('.today_orders').style.display = 'block'
 })
 
@@ -96,41 +109,40 @@ function getOrdersIdArray() {
     }
 }
 
+
 /* Показать сегодняшние заказы, с фетчем API */
-async function showTodayOrders(){
-   const URL_TODAY = 'http://localhost:8080/details/api/v1/order-today'
-   const orders_today = await fetch(URL_TODAY, {
+async function showOrders(URL){
+   const orders = await fetch(URL, {
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
         }
     })
-       await printTodayOrders(await orders_today.json())
+       await printOrders(await orders.json())
 }
 
 
-async function printTodayOrders(orders) {
+async function printOrders(orders) {
     if (orders.length !== 0) {
         let result = deleteDoubles(orders)
         result.forEach(item => {
-            for (let i = 0; i < item.details.length; i++) {
-                document.querySelector('.today_orders').insertAdjacentHTML('beforeend',
-                    `
+        document.querySelector('.today_orders').insertAdjacentHTML('beforeend',
+        `
             <div class="insertToday">
                 <div class="detail">${item.client_FIO}</div>
                 <div class="detail">${item.timeOfCreation}</div>
                 <div class="detail">${item.timeOfDeadLine}</div>
-                <div class="detail_order">${item.details[i].name}</div>
-                <div class="detail_order">${item.details[i].article}</div>
-                <div class="detail_order">${item.details[i].vin}</div>
-                <div class="detail_order">${item.details[i].carMarks}</div>
-                <div class="detail_order">${item.details[i].manufacturer}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.name}</div>`).join("\n")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.article}</div>`).join("\n")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.vin}</div>`).join("\n")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.carMarks}</div>`).join("\n")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.manufacturer}</div>`).join("\n")}</div>
             </div>
             `
-                )
-            }
+                    )
         })
     }
 }
+
 
 
 function deleteDoubles(orders){

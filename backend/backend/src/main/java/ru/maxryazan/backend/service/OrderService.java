@@ -46,4 +46,8 @@ public class OrderService {
         System.out.println(simpleDateFormat.format(date));
         return simpleDateFormat.format(date);
     }
+
+    public ResponseEntity<List<Order>> findAllOrders() {
+        return new ResponseEntity<>(orderRepository.findAll(), HttpStatus.OK);
+    }
 }
