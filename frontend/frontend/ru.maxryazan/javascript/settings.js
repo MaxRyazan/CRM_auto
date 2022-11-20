@@ -54,6 +54,24 @@ document.querySelector('.all').addEventListener('click', function(){
 })
 
 
+/* Создание кнопок печати таблице */
+async function createPrintButtons() {
+    let print_buttons = document.querySelectorAll('.btn_for_print')
+    for(let i = 0; i < print_buttons.length; i++){
+        print_buttons[i].addEventListener('click', function () {
+          let number = print_buttons[i].className.slice(27)
+            create_div(number)
+        })
+    }
+}
+
+/* Создание страницы для печати, где number - строка заказа в таблице */
+function create_div(number){
+    const div_with_order_data  = document.querySelector('.insertToday' + number)
+
+
+}
+
 /* Создание кнопок удаления в таблице */
 function createXButtons() {
     let table_buttonsX = document.querySelectorAll('.cancel_button')
@@ -116,18 +134,20 @@ async function showOrders(URL){
         headers: {
             'Content-type': 'application/json; charset=UTF-8'
         }
-    })
+   })
        await printOrders(await orders.json())
+       await createPrintButtons()
 }
 
 
 async function printOrders(orders) {
+    let count = 0
     if (orders.length !== 0) {
         let result = deleteDoubles(orders)
         result.forEach(item => {
         document.querySelector('.today_orders').insertAdjacentHTML('beforeend',
         `
-            <div class="insertToday">
+            <div class="insertToday insertToday${count}">
                 <div class="detail">${item.client_FIO}</div>
                 <div class="detail">${item.timeOfCreation}</div>
                 <div class="detail">${item.timeOfDeadLine}</div>
@@ -136,9 +156,11 @@ async function printOrders(orders) {
                 <div class="detail">${item.details.map(detail => `<div>${detail.vin}</div>`).join("\n")}</div>
                 <div class="detail">${item.details.map(detail => `<div>${detail.carMarks}</div>`).join("\n")}</div>
                 <div class="detail">${item.details.map(detail => `<div>${detail.manufacturer}</div>`).join("\n")}</div>
+                <button class="btn_for_print btn_for_print${count}">print</button>
             </div>
             `
                     )
+            count++
         })
     }
 }

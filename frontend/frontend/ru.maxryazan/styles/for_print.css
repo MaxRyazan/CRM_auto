@@ -1,0 +1,26 @@
+.div_for_print{
+    width: 97.5%;
+    height: 97%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.945);
+    padding: 10px;
+    z-index: 9999999;
+}
+.div_for_order{
+    margin-left: 9%;
+    margin-right: 9%;
+    margin-top: 10%;
+    border: 2px solid black;
+    width: 80%;
+    padding: 10px;
+}
+.h4_name{
+    position: absolute;
+    left: 350px;
+    font-weight: bold;
+}
+.h4_title{
+    font-size: 1.2rem;
+}

@@ -23,5 +23,5 @@ public interface DetailRepository extends JpaRepository<Detail, Long> {
     List<Detail> findByVINAndCarMarks(String VIN, String carMarks);
 
     @Query(value = "select * from detail d where d.article = ?1 AND d.manufacturer = ?2", nativeQuery = true)
-    List<Detail> findByArticleAndManufacturer(String article, @Param("manufacturer") String manufacturer);
+    List<Detail> findByArticleAndManufacturer(String article, String manufacturer);
 }
