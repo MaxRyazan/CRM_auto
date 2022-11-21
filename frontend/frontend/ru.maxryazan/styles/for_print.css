@@ -1,26 +1,61 @@
-.div_for_print{
-    width: 97.5%;
-    height: 97%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: rgba(255, 255, 255, 0.945);
-    padding: 10px;
-    z-index: 9999999;
+.btn_for_print{
+    width: 3rem;
+    height:inherit;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.div_for_order{
-    margin-left: 9%;
-    margin-right: 9%;
-    margin-top: 10%;
-    border: 2px solid black;
+.btn_for_print:hover{
+    cursor: pointer;
+}
+.print_img{
     width: 80%;
-    padding: 10px;
-}
-.h4_name{
+    height: auto;
     position: absolute;
-    left: 350px;
+}
+.for_print{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.93);
+    z-index: 99999;
+    display: none;
+}
+.main_block{
+    margin-top: 50px;
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    border: 2px solid black;
+    border-radius: 4px;
+    padding: 15px;
+    position: relative;
+}
+.inline_for_print{
+    display: inline-flex;
+    margin-top: 10px;
+}
+.text_for_print{
     font-weight: bold;
 }
-.h4_title{
-    font-size: 1.2rem;
+.for_print__owner, .for_print__data_from, .for_print__data_to{
+    position: absolute;
+    left: 25rem;
+}
+.for_print__article, .for_print__vin, .for_print__mark, .for_print__manufacturer{
+    margin-left: 20px;
+}
+.relative_left20_5{
+    position: relative;
+    left: 20.5rem;
+}
+.text_for_print{
+    display: inline-flex;
+}
+.x_button_print{
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
 }

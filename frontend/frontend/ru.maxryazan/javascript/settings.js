@@ -1,6 +1,10 @@
 const URL_TODAY = 'http://localhost:8080/details/api/v1/order-today'
 const URL_ALL = 'http://localhost:8080/details/api/v1/order-all'
 
+document.querySelector('.x_button_print').addEventListener('click', function(){
+    document.querySelector('.for_print').style.display = 'none'
+    document.querySelectorAll('.relative_left20_5').forEach(item =>item.remove())
+})
 
 document.querySelector('.close_btn_search').addEventListener('click', function(){
     document.querySelector('.all_details_container').classList.add('hide')
@@ -68,7 +72,44 @@ async function createPrintButtons() {
 /* Создание страницы для печати, где number - строка заказа в таблице */
 function create_div(number){
     const div_with_order_data  = document.querySelector('.insertToday' + number)
+    const for_print = document.querySelector('.for_print')
+    const owner = div_with_order_data.children.item(0).innerHTML
+    const date_from = div_with_order_data.children.item(1).innerHTML
+    const date_to = div_with_order_data.children.item(2).innerHTML
 
+    document.querySelector('.for_print__owner').innerHTML = owner
+    document.querySelector('.for_print__data_from').innerHTML = date_from
+    document.querySelector('.for_print__data_to').innerHTML = date_to
+
+    let count = div_with_order_data.children.item(3).children.length
+
+    for(let i = 0; i < count; i++) {
+        let detail_name = document.createElement('div')
+        detail_name.classList.add('relative_left20_5')
+        detail_name.innerHTML =  div_with_order_data.children.item(3).children[i].innerHTML
+        document.querySelector('.for_print__name').appendChild(detail_name)
+
+        let detail_article = document.createElement('div')
+        detail_article.classList.add('relative_left20_5')
+        detail_article.innerHTML =  div_with_order_data.children.item(4).children[i].innerHTML
+        document.querySelector('.for_print__article').appendChild(detail_article)
+
+        let detail_vin = document.createElement('div')
+        detail_vin.classList.add('relative_left20_5')
+        detail_vin.innerHTML =  div_with_order_data.children.item(5).children[i].innerHTML
+        document.querySelector('.for_print__vin').appendChild(detail_vin)
+
+        let detail_mark = document.createElement('div')
+        detail_mark.classList.add('relative_left20_5')
+        detail_mark.innerHTML =  div_with_order_data.children.item(6).children[i].innerHTML
+        document.querySelector('.for_print__mark').appendChild(detail_mark)
+
+        let detail_manufacturer = document.createElement('div')
+        detail_manufacturer.classList.add('relative_left20_5')
+        detail_manufacturer.innerHTML =  div_with_order_data.children.item(7).children[i].innerHTML
+        document.querySelector('.for_print__manufacturer').appendChild(detail_manufacturer)
+    }
+    for_print.style.display = 'block'
 
 }
 
@@ -151,12 +192,12 @@ async function printOrders(orders) {
                 <div class="detail">${item.client_FIO}</div>
                 <div class="detail">${item.timeOfCreation}</div>
                 <div class="detail">${item.timeOfDeadLine}</div>
-                <div class="detail">${item.details.map(detail => `<div>${detail.name}</div>`).join("\n")}</div>
-                <div class="detail">${item.details.map(detail => `<div>${detail.article}</div>`).join("\n")}</div>
-                <div class="detail">${item.details.map(detail => `<div>${detail.vin}</div>`).join("\n")}</div>
-                <div class="detail">${item.details.map(detail => `<div>${detail.carMarks}</div>`).join("\n")}</div>
-                <div class="detail">${item.details.map(detail => `<div>${detail.manufacturer}</div>`).join("\n")}</div>
-                <button class="btn_for_print btn_for_print${count}">print</button>
+                <div class="detail">${item.details.map(detail => `<div>${detail.name}</div>`).join("")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.article}</div>`).join("")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.vin}</div>`).join("")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.carMarks}</div>`).join("")}</div>
+                <div class="detail">${item.details.map(detail => `<div>${detail.manufacturer}</div>`).join("")}</div>
+                <div class="btn_for_print btn_for_print${count}"><img class="print_img" src="../images/printer.png" alt=""></div>
             </div>
             `
                     )
