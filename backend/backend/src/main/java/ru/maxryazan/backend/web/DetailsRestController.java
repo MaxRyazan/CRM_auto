@@ -8,15 +8,13 @@ import ru.maxryazan.backend.entity.Detail;
 import ru.maxryazan.backend.entity.Order;
 import ru.maxryazan.backend.service.DetailService;
 import ru.maxryazan.backend.service.OrderService;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @CrossOrigin
 @RequiredArgsConstructor
 public class DetailsRestController {
+
 
     private final DetailService detailService;
     private final OrderService orderService;
