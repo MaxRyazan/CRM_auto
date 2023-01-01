@@ -12,7 +12,7 @@ public interface DetailRepository extends JpaRepository<Detail, Long> {
 
     List<Detail> findByName(String name);
     List<Detail> findByArticle(String article);
-    List<Detail> findByVIN(String VIN);
+    List<Detail> findByVin(String vin);
     List<Detail> findByManufacturer(String manufacturer);
     Detail findById(long id);
 

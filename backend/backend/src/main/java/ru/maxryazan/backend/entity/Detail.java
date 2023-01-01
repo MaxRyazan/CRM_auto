@@ -1,11 +1,14 @@
 package ru.maxryazan.backend.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
@@ -20,7 +23,7 @@ public class Detail {
 
     private String name;
 
-    private String VIN;
+    private String vin;
 
     private String article;
 
@@ -29,6 +32,8 @@ public class Detail {
     @ElementCollection(targetClass = CarMark.class)
     @Enumerated(EnumType.STRING)
     private List<CarMark> carMarks;
+
+    private BigDecimal price;
 
     private String description;
 
@@ -41,10 +46,10 @@ public class Detail {
     @ElementCollection
     private List<String> photos;
 
-    public Detail(String name, String VIN, String article, String manufacturer,
+    public Detail(String name, String vin, String article, String manufacturer,
                   List<CarMark> carMarks, String description) {
         this.name = name;
-        this.VIN = VIN;
+        this.vin = vin;
         this.article = article;
         this.manufacturer = manufacturer;
         this.carMarks = carMarks;
@@ -56,7 +61,7 @@ public class Detail {
     public String toString() {
         return "Detail{" +
                 "name='" + name + '\'' +
-                ", VIN='" + VIN + '\'' +
+                ", VIN='" + vin + '\'' +
                 ", article='" + article + '\'' +
                 ", manufacturer='" + manufacturer + '\'' +
                 ", carMarks=" + carMarks +

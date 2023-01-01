@@ -35,9 +35,12 @@ public class DetailService {
         }
     }
 
+    public ResponseEntity<List<Detail>> findAll(){
+        return new ResponseEntity<>(detailRepository.findAll(), HttpStatus.OK);
+    }
 
-    public ResponseEntity<List<Detail>> findByVIN(String VIN){
-        List<Detail> details = detailRepository.findByVIN(VIN);
+    public ResponseEntity<List<Detail>> findByVIN(String vin){
+        List<Detail> details = detailRepository.findByVin(vin);
         if(!details.isEmpty()) {
             return new ResponseEntity<>(details, HttpStatus.OK);
         } else {

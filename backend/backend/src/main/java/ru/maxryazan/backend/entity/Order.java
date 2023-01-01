@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.List;
 
 
@@ -27,13 +28,15 @@ public class Order {
             inverseJoinColumns = @JoinColumn(name = "detail_id"))
     private List<Detail> details;
 
+    private BigDecimal sum;
 
     public Order(String client_FIO, String timeOfCreation,
-                 String timeOfDeadLine, List<Detail> details) {
+                 String timeOfDeadLine, List<Detail> details, BigDecimal sum) {
         this.client_FIO = client_FIO;
         this.timeOfCreation = timeOfCreation;
         this.timeOfDeadLine = timeOfDeadLine;
         this.details = details;
+        this.sum = sum;
     }
 
     @Override

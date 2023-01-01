@@ -1,6 +1,9 @@
 package ru.maxryazan.backend.web;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
+import org.apache.tomcat.util.json.JSONParser;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -8,7 +11,10 @@ import ru.maxryazan.backend.entity.Detail;
 import ru.maxryazan.backend.entity.Order;
 import ru.maxryazan.backend.service.DetailService;
 import ru.maxryazan.backend.service.OrderService;
+
+import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @CrossOrigin
@@ -39,6 +45,11 @@ public class DetailsRestController {
         return detailService.findByCarMark(mark.toUpperCase());
     }
 
+    @GetMapping(value = "/details/api/v1/all_details", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<List<Detail>> findByMark(){
+        return detailService.findAll();
+    }
+
     @GetMapping(value = "/details/api/v1/VIN/{vin}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Detail>> findByVIN(@PathVariable String vin){
         return detailService.findByVIN(vin);
@@ -67,8 +78,10 @@ public class DetailsRestController {
     }
 
     @PostMapping(value = "/details/api/v1/order-new")
-    public void post(@RequestBody String[] data){
-        orderService.createAndSaveOrder(data);
+    public void post(@RequestBody String data) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        Order order = mapper.readValue(data, Order.class);
+        orderService.save(order);
     }
 }
 

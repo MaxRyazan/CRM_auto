@@ -65,15 +65,11 @@
     cursor: pointer;
 }
 .cancel_button{
-    float: right;
-    position: relative;
     height: 1.2rem;
     width: 2.5rem;
     right: 0;
 }
 .move_button{
-    float: right;
-    position: relative;
     height: 1.2rem;
     width: 2.5rem;
     right: 0;
@@ -109,8 +105,10 @@
     box-shadow: none;
 }
 .table_buttons{
-    position: relative;
+    display: flex;
     margin-right: 5px;
+    justify-content: space-around;
+    align-items: center;
     width: 15%;
 }
 .article_plus_manufacturer_button{
